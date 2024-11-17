@@ -1,0 +1,54 @@
+/* General Body Styles */
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+/* Warning Section */
+#warning {
+    background-color: black;
+    color: red;
+    padding: 20px;
+    border: 2px solid red;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 100;
+}
+
+/* Button Styles */
+#confirmButton {
+    background-color: red;
+    color: white;
+    font-size: 18px;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#confirmButton:hover {
+    background-color: darkred;
+}
+
+/* Message Styles */
+#message {
+    font-size: 24px;
+    margin-top: 20px;
+    color: red;
+}
+
+/* Camera Video Styles */
+#camera {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 50;
+}
