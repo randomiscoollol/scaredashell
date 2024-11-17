@@ -3,16 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Scary Experience</title>
+    <title>Scary Website</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div id="warning">
-        <p><strong>WARNING: This website will have flashing elements and scary elements, sensitive people dare not play.</strong></p>
-        <p><strong>Epilepsy Warning: Flashing lights and images may trigger seizures in sensitive individuals.</strong></p>
+    <div id="warning" class="warning">
+        <p>WARNING: This website will have flashing elements and scary elements. Sensitive people dare not play.</p>
+        <p>Epilepsy warning: Flashing lights may cause discomfort. Proceed with caution.</p>
         <button id="confirmButton">Confirm</button>
     </div>
-    <div id="message" style="display: none;"></div>
+
+    <div id="message" class="message" style="display: none;"></div>
+
     <video id="camera" style="display: none;" autoplay></video>
 
     <script src="script.js"></script>
