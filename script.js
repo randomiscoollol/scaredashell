@@ -1,16 +1,50 @@
 // Function to start the scary experience after confirmation
 document.getElementById('confirmButton').addEventListener('click', () => {
-  // Hide the confirmation button and warning message
-  document.getElementById('confirmButton').style.display = 'none';
-  document.getElementById('message').style.display = 'none';
-
+  // Hide the warning section and button
+  document.getElementById('warning').style.display = 'none';
+  
+  // Show the scary messages and start the experience
+  document.getElementById('message').style.display = 'block';
+  
   // Change background and text color
   document.body.style.backgroundColor = 'black';
   document.body.style.color = 'red';
 
+  // Force fullscreen
+  goFullscreen();
+
   // Start the scary sequence
   morseAnimation();
 });
+
+// Function to force fullscreen
+function goFullscreen() {
+  const docElm = document.documentElement;
+
+  if (docElm.requestFullscreen) {
+    docElm.requestFullscreen();
+  } else if (docElm.mozRequestFullScreen) { // Firefox
+    docElm.mozRequestFullScreen();
+  } else if (docElm.webkitRequestFullscreen) { // Chrome and Safari
+    docElm.webkitRequestFullscreen();
+  } else if (docElm.msRequestFullscreen) { // IE/Edge
+    docElm.msRequestFullscreen();
+  }
+
+  // Monitor for fullscreen exit attempts
+  document.addEventListener('fullscreenchange', checkFullscreen);
+  document.addEventListener('webkitfullscreenchange', checkFullscreen);
+  document.addEventListener('mozfullscreenchange', checkFullscreen);
+  document.addEventListener('MSFullscreenChange', checkFullscreen);
+}
+
+// Function to check if fullscreen is exited, and if so, re-enter fullscreen
+function checkFullscreen() {
+  if (!document.fullscreenElement && !document.webkitFullscreenElement && !document.mozFullScreen && !document.msFullscreenElement) {
+    // If the user exits fullscreen, re-enter fullscreen
+    goFullscreen();
+  }
+}
 
 // Morse code for "run, run, you are next"
 const morseCode = {
