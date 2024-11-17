@@ -1,11 +1,10 @@
-// Function to start the scary experience after confirmation
 document.getElementById('confirmButton').addEventListener('click', () => {
-  // Hide the warning section and button
+  // Hide the warning section
   document.getElementById('warning').style.display = 'none';
-  
-  // Show the scary messages and start the experience
+
+  // Show the scary messages
   document.getElementById('message').style.display = 'block';
-  
+
   // Change background and text color
   document.body.style.backgroundColor = 'black';
   document.body.style.color = 'red';
@@ -17,7 +16,6 @@ document.getElementById('confirmButton').addEventListener('click', () => {
   morseAnimation();
 });
 
-// Function to force fullscreen
 function goFullscreen() {
   const docElm = document.documentElement;
 
@@ -38,7 +36,6 @@ function goFullscreen() {
   document.addEventListener('MSFullscreenChange', checkFullscreen);
 }
 
-// Function to check if fullscreen is exited, and if so, re-enter fullscreen
 function checkFullscreen() {
   if (!document.fullscreenElement && !document.webkitFullscreenElement && !document.mozFullScreen && !document.msFullscreenElement) {
     // If the user exits fullscreen, re-enter fullscreen
@@ -175,7 +172,8 @@ function spamImages() {
 
 function endExperience() {
   // Final step: show that the experience is over
-  document.getElementById("message").textContent = "The experience is over... for now.";
-  // Optionally, you could trigger an exit fullscreen here if needed
-  document.exitFullscreen();
+  document.getElementById("message").textContent = "Game Over!";
+  setTimeout(() => {
+    window.location.href = "about:blank"; // Redirect to blank page to end the experience
+  }, 5000); // Wait for 5 seconds before ending
 }
